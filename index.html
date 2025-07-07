@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Nome - Portfólio OS</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="icon" href="assets/icons/favicon.png" type="image/png"> --> <!-- Descomente quando tiver seu favicon -->
+</head>
+<body>
+
+    <!-- Tela de Boot -->
+    <div id="boot-screen">
+        <div class="boot-logo"></div>
+        <p>Iniciando o Portfolio OS...</p>
+    </div>
+    
+    <!-- Container Principal do Sistema Operacional -->
+    <main id="os-container">
+        
+        <!-- Área de Trabalho (Desktop) -->
+        <div id="desktop">
+            <div class="desktop-icon" data-app-id="about">
+                <img src="https://api.iconify.design/ph:user-circle-bold.svg?color=white" alt="Ícone Sobre Mim">
+                <span>Sobre Mim</span>
+            </div>
+            <div class="desktop-icon" data-app-id="projects">
+                <img src="https://api.iconify.design/ph:code-bold.svg?color=white" alt="Ícone Projetos">
+                <span>Projetos</span>
+            </div>
+            <div class="desktop-icon" data-app-id="skills">
+                <img src="https://api.iconify.design/ph:rocket-launch-bold.svg?color=white" alt="Ícone Habilidades">
+                <span>Habilidades</span>
+            </div>
+            <div class="desktop-icon" data-app-id="contact">
+                <img src="https://api.iconify.design/ph:envelope-simple-bold.svg?color=white" alt="Ícone Contato">
+                <span>Contato</span>
+            </div>
+        </div>
+
+        <!-- Barra de Tarefas -->
+        <footer id="taskbar">
+            <div id="start-menu-button">
+                 <img src="https://api.iconify.design/ph:squares-four-bold.svg?color=white" alt="Menu Iniciar">
+            </div>
+            <div id="taskbar-apps"></div>
+            <div id="system-tray">
+                <div id="theme-toggle">
+                    <img src="https://api.iconify.design/ph:sun-bold.svg?color=white" alt="Alternar Tema">
+                </div>
+                <div id="clock"></div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Templates para o conteúdo de cada janela/app -->
+    <template id="app-template-about">
+        <div class="app-content about-content">
+            <img src="assets/images/profile.jpg" alt="Sua Foto" class="profile-pic">
+            <h1>Seu Nome Completo</h1>
+            <h2>Desenvolvedor(a) Full-Stack | Entusiasta de UX/UI</h2>
+            <p>Olá! Sou um(a) desenvolvedor(a) apaixonado(a) por criar soluções tecnológicas que sejam intuitivas, eficientes e visualmente agradáveis. Tenho experiência em X, Y e Z, e estou sempre em busca de novos desafios para aprimorar minhas habilidades.</p>
+            <p><strong>Localização:</strong> Cidade, Estado</p>
+            <a href="assets/curriculum.pdf" download="curriculo-seu-nome.pdf" class="download-button">Baixar Currículo (PDF)</a>
+        </div>
+    </template>
+
+    <template id="app-template-skills">
+        <div class="app-content skills-content">
+            <h1>Habilidades Técnicas</h1>
+            <p>Estas são algumas das tecnologias com as quais trabalho:</p>
+            <div class="skills-grid">
+                <div class="skill-item"><span>HTML5</span><div class="skill-bar"><div style="width: 95%;"></div></div></div>
+                <div class="skill-item"><span>CSS3</span><div class="skill-bar"><div style="width: 90%;"></div></div></div>
+                <div class="skill-item"><span>JavaScript</span><div class="skill-bar"><div style="width: 85%;"></div></div></div>
+                <div class="skill-item"><span>Node.js</span><div class="skill-bar"><div style="width: 75%;"></div></div></div>
+                <div class="skill-item"><span>Git & GitHub</span><div class="skill-bar"><div style="width: 95%;"></div></div></div>
+                <div class="skill-item"><span>SQL</span><div class="skill-bar"><div style="width: 80%;"></div></div></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="app-template-projects">
+        <div class="app-content projects-content">
+            <h1>Meus Projetos</h1>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="assets/images/project1.png" alt="Imagem do Projeto 1">
+                    <h3>Nome do Projeto 1</h3>
+                    <p>Uma breve descrição sobre o que este projeto faz, suas tecnologias e o problema que ele resolve.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Ver Online</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="assets/images/project2.png" alt="Imagem do Projeto 2">
+                    <h3>Nome do Projeto 2</h3>
+                    <p>Uma breve descrição sobre o que este projeto faz, suas tecnologias e o problema que ele resolve.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Ver Online</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <!-- Adicione mais projetos aqui -->
+            </div>
+        </div>
+    </template>
+
+    <template id="app-template-contact">
+        <div class="app-content contact-content">
+            <h1>Entre em Contato</h1>
+            <p>Tem uma pergunta ou uma proposta? Preencha o formulário abaixo!</p>
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <!-- Chave de acesso do Web3Forms adicionada -->
+                <input type="hidden" name="access_key" value="040123e8-e14d-454a-8b03-c97f440d2669">
+
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Enviar Mensagem</button>
+                <p id="form-status"></p>
+            </form>
+        </div>
+    </template>
+    
+    <script src="script.js"></script>
+</body>
+</html>
